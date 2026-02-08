@@ -1,0 +1,277 @@
+:root{
+  --bg0:#070A12;
+  --bg1:#0B1020;
+  --glass:#0f1734cc;
+  --glass2:#0a0f22aa;
+  --stroke:#ffffff1a;
+  --stroke2:#ffffff26;
+
+  --txt:#EAF0FF;
+  --muted:#B7C3E8;
+  --muted2:#91A2D6;
+
+  --accent:#7C5CFF;
+  --accent2:#25E4FF;
+
+  --shadow: 0 18px 60px #00000080;
+
+  --r:18px;
+  --r2:26px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family:"Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--txt);
+  background:
+    radial-gradient(1200px 900px at 10% 20%, #7c5cff26, transparent 60%),
+    radial-gradient(900px 700px at 80% 10%, #25e4ff22, transparent 55%),
+    radial-gradient(800px 700px at 70% 85%, #49ffa514, transparent 60%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  overflow-x:hidden;
+}
+
+.bgOrbs{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(600px 500px at 12% 15%, #7c5cff2b, transparent 60%),
+    radial-gradient(520px 420px at 80% 20%, #25e4ff2b, transparent 60%),
+    radial-gradient(520px 520px at 70% 85%, #49ffa51a, transparent 65%);
+}
+
+.wrap{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 14px 28px;
+}
+
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding: 14px 14px;
+  border:1px solid var(--stroke);
+  border-radius: var(--r2);
+  background: linear-gradient(135deg, #0b1229cc, #0a0f22aa);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.brandName{ font-weight:900; letter-spacing:.4px; }
+.brandSub{ color: var(--muted); font-size:12px; margin-top:2px; }
+
+.chip{
+  font-size:12px;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid var(--stroke);
+  background:#0a0f22aa;
+  color: var(--muted);
+  font-weight:900;
+  user-select:none;
+}
+
+.card{
+  margin-top:14px;
+  border:1px solid var(--stroke);
+  border-radius: var(--r2);
+  background: linear-gradient(135deg, var(--glass), var(--glass2));
+  box-shadow: var(--shadow);
+  padding:14px;
+  backdrop-filter: blur(14px);
+}
+
+.stepper{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding: 4px 4px 12px;
+  border-bottom: 1px solid var(--stroke);
+}
+.step{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color: var(--muted2);
+  font-weight:900;
+  font-size:12px;
+}
+.step .dot{
+  width:12px; height:12px;
+  border-radius:999px;
+  border: 1px solid var(--stroke2);
+  background: #0a0f22aa;
+}
+.step.active{ color: var(--txt); }
+.step.active .dot{
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 10px 24px #00000088;
+}
+.line{
+  flex:1;
+  height:1px;
+  background: linear-gradient(90deg, transparent, #ffffff2a, transparent);
+}
+
+.screens{ padding-top: 12px; }
+.screen{ animation: pop .18s ease; }
+@keyframes pop{
+  from{ transform: translateY(4px); opacity:.6; }
+  to{ transform: translateY(0); opacity:1; }
+}
+
+.title{
+  margin: 0;
+  font-size: 28px;
+  letter-spacing:-.4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  font-weight:900;
+}
+.desc{
+  margin: 8px 0 14px;
+  color: var(--muted);
+  line-height:1.6;
+}
+
+.form{ display:grid; gap:12px; }
+.field{ display:grid; gap:8px; }
+.label{ font-weight:900; font-size:13px; color:#dfe7ff; }
+
+.input{
+  width:100%;
+  padding:14px 14px;
+  border-radius: 18px;
+  border:1px solid var(--stroke);
+  background: linear-gradient(135deg, #0d1530cc, #070b18aa);
+  box-shadow: 0 14px 40px #00000066;
+  color: var(--txt);
+  font-weight:900;
+  outline:none;
+}
+
+.btn{
+  position:relative;
+  padding:14px 14px;
+  border-radius: 18px;
+  border:1px solid var(--stroke2);
+  font-weight:900;
+  font-size:13px;
+  box-shadow: 0 16px 44px #00000066;
+  transition: transform .18s ease, border-color .18s ease;
+  cursor:pointer;
+  color: var(--txt);
+  background: linear-gradient(135deg, #141d3ecc, #0b1024aa);
+  overflow:hidden;
+  user-select:none;
+}
+.btn:hover{ transform: translateY(-1px); border-color:#ffffff33; }
+.btn:active{ transform: translateY(0) scale(.99); }
+.btn.primary{
+  background: linear-gradient(135deg, #7c5cff, #25e4ff);
+  color:#051024;
+  border-color: transparent;
+}
+.btn.ghost{ background: linear-gradient(135deg, #141d3ecc, #0b1024aa); }
+.btn.small{ padding:10px 12px; border-radius:14px; font-size:12px; }
+
+.btnText{ position:relative; z-index:2; }
+.btnGlow{
+  position:absolute;
+  inset:-40%;
+  background: radial-gradient(circle at 30% 30%, #ffffff80, transparent 55%);
+  opacity:.35;
+  transform: rotate(20deg);
+  z-index:1;
+}
+
+.note{
+  font-size:12px;
+  color: var(--muted2);
+  line-height:1.5;
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  padding:10px 12px;
+  background:#0a0f22aa;
+}
+.note.ok{
+  border-color: #49ffa544;
+  background: linear-gradient(135deg, #0e2a1dcc, #0a0f22aa);
+  color:#d8ffe8;
+}
+
+.alert{
+  border:1px solid #ff7a7a44;
+  background: linear-gradient(135deg, #2a0e18cc, #0a0f22aa);
+  border-radius: 16px;
+  padding:10px 12px;
+  color:#ffd6d6;
+  font-weight:900;
+  font-size:12px;
+}
+
+.row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* OTP Microsoft-style: small squares, stable */
+.otpWrap{
+  display:grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.otpBox{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 52px;
+  justify-self: center;
+
+  border-radius: 10px;
+  border: 1px solid #ffffff2a;
+  background: #0a0f22aa;
+
+  color: var(--txt);
+  font-weight: 900;
+  font-size: 16px;
+  text-align: center;
+
+  outline: none;
+  box-shadow: 0 10px 26px #00000066;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+
+.otpBox:focus{
+  border-color: #25e4ff99;
+  box-shadow: 0 10px 26px #00000066, 0 0 0 3px #25e4ff22;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 420px){
+  .otpWrap{ gap: 8px; max-width: 320px; }
+  .otpBox{ max-width: 46px; font-size: 15px; border-radius: 9px; }
+}
+@media (max-width: 360px){
+  .otpWrap{ gap: 6px; max-width: 290px; }
+  .otpBox{ max-width: 42px; font-size: 14px; border-radius: 8px; }
+}
+
+.foot{
+  margin-top:14px;
+  text-align:center;
+  color: var(--muted2);
+  font-size:12px;
+}

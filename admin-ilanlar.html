@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROXY STORE | İlanlar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="admin-ilanlar.css" />
+</head>
+<body>
+  <div class="bgOrbs" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="brandName">ROXY STORE</div>
+        <div class="brandSub">İlan Yönetimi</div>
+      </div>
+
+      <div class="topRight">
+        <span class="chip" id="countChip">0 İlan</span>
+        <button class="btn ghost small" id="backBtn" type="button">Panele Dön</button>
+      </div>
+    </header>
+
+    <section class="card">
+      <h1 class="title">İlanlar</h1>
+      <p class="desc">Sanal numara ve sosyal medya ilanlarını buradan yönetirsiniz.</p>
+
+      <div class="tabs" role="tablist" aria-label="İlan Sekmeleri">
+        <button class="tab active" data-tab="sms" role="tab" aria-selected="true">
+          Sanal Numara
+          <span class="pill" id="pillSms">0</span>
+        </button>
+        <button class="tab" data-tab="smm" role="tab" aria-selected="false">
+          Sosyal Medya
+          <span class="pill" id="pillSmm">0</span>
+        </button>
+      </div>
+
+      <div class="section">
+        <div class="secHead">
+          <div>
+            <div class="secTitle">İlan Düzenle</div>
+            <div class="secSub">Aktif ilanlar listelenir. Düzenleyip kaydedebilirsiniz.</div>
+          </div>
+        </div>
+        <div id="editList" class="list"></div>
+      </div>
+
+      <div class="section">
+        <div class="secHead">
+          <div>
+            <div class="secTitle">İlan Ekle</div>
+            <div class="secSub">Yeni ilan yayınlayın. API seçebilir veya yeni API oluşturabilirsiniz.</div>
+          </div>
+        </div>
+
+        <!-- SMS FORM -->
+        <form id="formSms" class="form">
+          <div class="row">
+            <div class="field">
+              <label class="label">API</label>
+              <div class="seg">
+                <button class="segBtn active" type="button" data-mode="pick">API Seç</button>
+                <button class="segBtn" type="button" data-mode="create">API Oluştur</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field" id="smsPickWrap">
+              <label class="label" for="smsApiPick">API Seç</label>
+              <select class="input" id="smsApiPick"></select>
+            </div>
+            <div class="field" id="smsCreateWrap" hidden>
+              <label class="label" for="smsApiCreate">Yeni API Adı</label>
+              <input class="input" id="smsApiCreate" type="text" placeholder="Örn: Discord" maxlength="40" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label class="label" for="smsTitle">İlan Adı</label>
+              <input class="input" id="smsTitle" type="text" placeholder="Örn: WhatsApp Türkiye Sanal Numara" maxlength="80" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label class="label" for="smsPrice">Fiyat (₺)</label>
+              <input class="input" id="smsPrice" type="number" inputmode="numeric" placeholder="Örn: 460" min="0" step="1" />
+            </div>
+          </div>
+
+          <div class="row actions">
+            <button class="btn primary" type="submit">
+              <span class="btnText">İlanı Yayınla</span><span class="btnGlow" aria-hidden="true"></span>
+            </button>
+          </div>
+        </form>
+
+        <!-- SMM FORM -->
+        <form id="formSmm" class="form" hidden>
+          <div class="row">
+            <div class="field">
+              <label class="label">API</label>
+              <div class="seg smmSeg">
+                <button class="segBtn active" type="button" data-mode="pick">API Seç</button>
+                <button class="segBtn" type="button" data-mode="create">API Oluştur</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field" id="smmPickWrap">
+              <label class="label" for="smmApiPick">API Seç</label>
+              <select class="input" id="smmApiPick"></select>
+            </div>
+            <div class="field" id="smmCreateWrap" hidden>
+              <label class="label" for="smmApiCreate">Yeni API Adı</label>
+              <input class="input" id="smmApiCreate" type="text" placeholder="Örn: YouTube" maxlength="40" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label class="label" for="smmService">Servis</label>
+              <select class="input" id="smmService">
+                <option value="followers">Takipçi</option>
+                <option value="likes">Beğeni</option>
+                <option value="views">İzlenme</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="label" for="smmBase1000">1000 Adet Fiyatı (₺)</label>
+              <input class="input" id="smmBase1000" type="number" inputmode="numeric" placeholder="Örn: 100" min="0" step="1" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label class="label" for="smmMin">Minimum Miktar</label>
+              <input class="input" id="smmMin" type="number" inputmode="numeric" placeholder="Örn: 200" min="1" step="1" />
+            </div>
+            <div class="field">
+              <label class="label" for="smmMax">Maksimum Miktar</label>
+              <input class="input" id="smmMax" type="number" inputmode="numeric" placeholder="Örn: 100000" min="1" step="1" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="note" id="smmNote">
+              Not: Site tarafında fiyat hesaplama: <b>(miktar / 1000) × 1000 fiyatı</b>.
+              İzlenme servisini istersen “bakımda” modunda gösterebilirsin (site tarafında).
+            </div>
+          </div>
+
+          <div class="row actions">
+            <button class="btn primary" type="submit">
+              <span class="btnText">İlanı Yayınla</span><span class="btnGlow" aria-hidden="true"></span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="foot">©2026 ROXY STORE | Tüm hakları saklıdır.</footer>
+  </main>
+
+  <!-- Modal -->
+  <div class="backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Bilgi">
+      <div class="modalHead">
+        <div>
+          <div class="modalTitle" id="modalTitle">Bilgi</div>
+          <div class="modalSub" id="modalSub">—</div>
+        </div>
+        <button class="xBtn" id="modalClose" type="button">✕</button>
+      </div>
+      <div class="modalBody" id="modalBody">—</div>
+      <div class="modalActions">
+        <button class="btn primary" id="modalOk" type="button">
+          <span class="btnText">Kapat</span><span class="btnGlow" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin-ilanlar.js"></script>
+</body>
+</html>

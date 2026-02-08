@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROXY STORE | Admin Giriş</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="admin-giris.css" />
+</head>
+<body>
+  <div class="bgOrbs" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="brandName">ROXY STORE</div>
+        <div class="brandSub">Admin Giriş</div>
+      </div>
+      <span class="chip" id="chipState">Güvenli Giriş</span>
+    </header>
+
+    <section class="card">
+      <div class="stepper">
+        <div class="step active" id="dot1"><div class="dot"></div><div class="label">Giriş</div></div>
+        <div class="line"></div>
+        <div class="step" id="dot2"><div class="dot"></div><div class="label">Doğrulama</div></div>
+      </div>
+
+      <div class="screens">
+        <!-- LOGIN -->
+        <section class="screen" id="screenLogin">
+          <h1 class="title">Admin Girişi</h1>
+          <p class="desc">Kullanıcı adı ve şifre ile giriş yapın. Ardından e-posta doğrulaması istenir.</p>
+
+          <form class="form" id="loginForm" autocomplete="off">
+            <div class="field">
+              <label class="label" for="loginUser">Kullanıcı adı</label>
+              <input class="input" id="loginUser" type="text" placeholder="Kullanıcı adı" required />
+            </div>
+
+            <div class="field">
+              <label class="label" for="loginPass">Şifre</label>
+              <input class="input" id="loginPass" type="password" placeholder="Şifre" required />
+            </div>
+
+            <button class="btn primary" type="submit">
+              <span class="btnText">Giriş Yap</span>
+              <span class="btnGlow" aria-hidden="true"></span>
+            </button>
+
+            <div class="note">
+              Güvenlik amacıyla girişten sonra doğrulama kodu gerekir.
+            </div>
+
+            <div class="alert" id="loginAlert" hidden></div>
+          </form>
+        </section>
+
+        <!-- OTP -->
+        <section class="screen" id="screenOtp" hidden>
+          <h1 class="title">E-posta Doğrulama</h1>
+          <p class="desc">E-posta adresinize gönderilen 6 haneli doğrulama kodunu girin.</p>
+
+          <form class="form" id="otpForm" autocomplete="off">
+            <div class="otpWrap" aria-label="Doğrulama Kodu">
+              <input class="otpBox" inputmode="numeric" maxlength="1" aria-label="Kod 1" />
+              <input class="otpBox" inputmode="numeric" maxlength="1" aria-label="Kod 2" />
+              <input class="otpBox" inputmode="numeric" maxlength="1" aria-label="Kod 3" />
+              <input class="otpBox" inputmode="numeric" maxlength="1" aria-label="Kod 4" />
+              <input class="otpBox" inputmode="numeric" maxlength="1" aria-label="Kod 5" />
+              <input class="otpBox" inputmode="numeric" maxlength="1" aria-label="Kod 6" />
+            </div>
+
+            <button class="btn primary" type="submit">
+              <span class="btnText">Kodu Doğrula</span>
+              <span class="btnGlow" aria-hidden="true"></span>
+            </button>
+
+            <div class="row">
+              <button class="btn ghost small" type="button" id="backBtn">Geri</button>
+              <button class="btn ghost small" type="button" id="clearBtn">Temizle</button>
+            </div>
+
+            <div class="alert" id="otpAlert" hidden></div>
+            <div class="note ok" id="otpOk" hidden>Doğrulama başarılı.</div>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <footer class="foot">©2026 ROXY STORE | Tüm hakları saklıdır.</footer>
+  </main>
+
+  <script src="admin-giris.js"></script>
+</body>
+</html>

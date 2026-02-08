@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ROXY SEED</title>
+</head>
+<body style="font-family:system-ui;padding:16px">
+  <h2>Firestore Test Yaz</h2>
+  <button id="btn">1 Test İlanı Ekle</button>
+  <pre id="out"></pre>
+
+  <script type="module">
+    import { db } from "./firebase-init.js";
+    import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+    const out = document.getElementById("out");
+    document.getElementById("btn").addEventListener("click", async () => {
+      try {
+        const ref = await addDoc(collection(db, "ads"), {
+          kind: "sms",
+          apiName: "WhatsApp",
+          title: "WhatsApp Türkiye",
+          priceTL: 460,
+          active: true,
+          createdAt: serverTimestamp()
+        });
+        out.textContent = "✅ eklendi: " + ref.id;
+      } catch (e) {
+        out.textContent = "❌ hata: " + e.message;
+        console.error(e);
+      }
+    });
+  </script>
+</body>
+</html>

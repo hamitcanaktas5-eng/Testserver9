@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROXY STORE | Admin Panel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div class="bgOrbs" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="brandName">ROXY STORE</div>
+        <div class="brandSub">Admin Panel</div>
+      </div>
+
+      <div class="topRight">
+        <span class="chip">İşlem Merkezi</span>
+        <button class="btn ghost small" id="logoutBtn" type="button">Çıkış</button>
+      </div>
+    </header>
+
+    <section class="card">
+      <h1 class="title">Panel</h1>
+      <p class="desc">Bir menü seçin.</p>
+
+      <div class="grid">
+        <button class="tileBtn" id="btnReviews" type="button">
+          <div class="tileTop">
+            <div class="tileTitle">Değerlendirmeler</div>
+            <span class="tag">Yönet</span>
+          </div>
+          <div class="tileBody">Yorumları incele, onayla, reddet ve ROXY STORE yanıtı ekle.</div>
+        </button>
+
+        <button class="tileBtn" id="btnAds" type="button">
+          <div class="tileTop">
+            <div class="tileTitle">İlanlar</div>
+            <span class="tag">Yönet</span>
+          </div>
+          <div class="tileBody">İlan ekle, düzenle ve kaldır.</div>
+        </button>
+      </div>
+    </section>
+
+    <footer class="foot">©2026 ROXY STORE | Tüm hakları saklıdır.</footer>
+  </main>
+
+  <!-- Modal -->
+  <div class="backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Bilgi">
+      <div class="modalHead">
+        <div>
+          <div class="modalTitle" id="modalTitle">Bilgi</div>
+          <div class="modalSub" id="modalSub">—</div>
+        </div>
+        <button class="xBtn" id="modalClose" type="button">✕</button>
+      </div>
+
+      <div class="modalBody" id="modalBody">—</div>
+
+      <div class="modalActions">
+        <button class="btn ghost" id="modalOk" type="button">
+          <span class="btnText">Kapat</span>
+          <span class="btnGlow" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

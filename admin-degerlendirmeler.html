@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROXY STORE | Değerlendirmeler</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="admin-degerlendirmeler.css" />
+</head>
+<body>
+  <div class="bgOrbs" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="brandName">ROXY STORE</div>
+        <div class="brandSub">Değerlendirmeler</div>
+      </div>
+
+      <div class="topRight">
+        <span class="chip" id="countChip">0 Kayıt</span>
+        <button class="btn ghost small" id="backBtn" type="button">Panele Dön</button>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="headRow">
+        <h1 class="title">Yorum Yönetimi</h1>
+        <p class="desc">Yorumları inceleyin, onaylayın, reddedin ve ROXY STORE yanıtı ekleyin.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Değerlendirme Sekmeleri">
+        <button class="tab active" data-tab="approved" role="tab" aria-selected="true">
+          Onaylanmış
+          <span class="pill" id="pillApproved">0</span>
+        </button>
+        <button class="tab" data-tab="pending" role="tab" aria-selected="false">
+          Onay Bekleyen
+          <span class="pill" id="pillPending">0</span>
+        </button>
+        <button class="tab" data-tab="rejected" role="tab" aria-selected="false">
+          Reddedilen
+          <span class="pill" id="pillRejected">0</span>
+        </button>
+        <button class="tab" data-tab="unreplied" role="tab" aria-selected="false">
+          Yanıtlanmayan
+          <span class="pill" id="pillUnreplied">0</span>
+        </button>
+      </div>
+
+      <div class="list" id="listArea" aria-live="polite"></div>
+    </section>
+
+    <footer class="foot">©2026 ROXY STORE | Tüm hakları saklıdır.</footer>
+  </main>
+
+  <!-- Reply Modal -->
+  <div class="backdrop" id="replyBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Yanıtla">
+      <div class="modalHead">
+        <div>
+          <div class="modalTitle">ROXY STORE Yanıtı</div>
+          <div class="modalSub" id="replySub">—</div>
+        </div>
+        <button class="xBtn" id="replyClose" type="button">✕</button>
+      </div>
+
+      <div class="modalBody">
+        <div class="quote" id="replyQuote">—</div>
+
+        <label class="label" for="replyText">Yanıt</label>
+        <textarea class="textarea" id="replyText" rows="4" placeholder="Yanıtınızı yazın..."></textarea>
+
+        <div class="hint">Yanıt gönderilince yorum onaylı duruma geçer ve listelerde güncellenir.</div>
+      </div>
+
+      <div class="modalActions">
+        <button class="btn ghost" id="replyCancel" type="button">Vazgeç</button>
+        <button class="btn primary" id="replySend" type="button">
+          <span class="btnText">Gönder</span>
+          <span class="btnGlow" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Modal -->
+  <div class="backdrop" id="infoBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Bilgi">
+      <div class="modalHead">
+        <div>
+          <div class="modalTitle" id="infoTitle">Bilgi</div>
+          <div class="modalSub" id="infoSub">—</div>
+        </div>
+        <button class="xBtn" id="infoClose" type="button">✕</button>
+      </div>
+
+      <div class="modalBody" id="infoBody">—</div>
+
+      <div class="modalActions">
+        <button class="btn primary" id="infoOk" type="button">
+          <span class="btnText">Kapat</span>
+          <span class="btnGlow" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin-degerlendirmeler.js"></script>
+</body>
+</html>
